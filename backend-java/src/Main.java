@@ -23,9 +23,14 @@ public class Main {
 
         List<Room> rooms = DataStore.getRooms();
 
-        System.out.println("\nAvailable Rooms:");
-        for (Room room : rooms) {
-            System.out.println(room);
+        Room allocated = Allocator.allocateRoom(rooms, request);
+
+        System.out.println("\n--- RESULT ---");
+
+        if (allocated != null) {
+            System.out.println("Allocated Room: " + allocated);
+        } else {
+            System.out.println("No suitable room available.");
         }
     }
 }
