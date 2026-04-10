@@ -1,0 +1,428 @@
+/* =============================================
+   STYLES — styles.css
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:           #f5f5f3;
+  --surface:      #ffffff;
+  --border:       #e2e0d8;
+  --primary:      #5346b5;
+  --primary-light:#eeedfe;
+  --text:         #1a1a18;
+  --muted:        #6b6966;
+  --success:      #166534;
+  --success-bg:   #dcfce7;
+  --success-border:#bbf7d0;
+  --warning-bg:   #fef9ee;
+  --warning:      #854f0b;
+  --warning-border:#fcd34d;
+  --radius:       10px;
+  --radius-lg:    14px;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── Layout ─────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ─────────────────────────────────── */
+.sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.sidebar h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sidebar .sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(83, 70, 181, 0.1);
+}
+
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Chips ────────────────────────────────────── */
+.checkgroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  background: var(--surface);
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.chip.selected {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ── Button ────────────────────────────────────── */
+.btn {
+  width: 100%;
+  padding: 11px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.15s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+/* ── Main panel ────────────────────────────────── */
+.main {
+  padding: 28px;
+  overflow-y: auto;
+}
+
+.main h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.main h2 span {
+  color: var(--primary);
+}
+
+/* ── Empty state ────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: var(--muted);
+  text-align: center;
+  gap: 8px;
+}
+
+.empty-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+/* ── Result cards ───────────────────────────────── */
+.result-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.result-card.best {
+  border: 2px solid var(--primary);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.room-name {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.room-id {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.room-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── Badges ────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-best {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.badge-alt {
+  background: var(--bg);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+/* ── Features list ──────────────────────────────── */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.feat {
+  padding: 3px 10px;
+  background: var(--bg);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ── A* Score bar ────────────────────────────────── */
+.astar-bar {
+  margin-top: 12px;
+}
+
+.astar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.bar-track {
+  height: 6px;
+  background: var(--bg);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+/* ── Rules list ──────────────────────────────────── */
+.rules-list {
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.rule-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  padding: 4px 0;
+  color: var(--muted);
+}
+
+.rule-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.rule-pass {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.rule-fail {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.rule-name {
+  min-width: 130px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.rule-reason {
+  font-size: 13px;
+}
+
+/* ── Confirm button ──────────────────────────────── */
+.confirm-btn {
+  margin-top: 14px;
+  width: 100%;
+  padding: 9px;
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid var(--success-border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.confirm-btn:hover {
+  background: var(--success-border);
+}
+
+/* ── No result banner ────────────────────────────── */
+.no-result {
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.no-result strong {
+  display: block;
+  color: var(--warning);
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.no-result p {
+  font-size: 13px;
+  color: #92400e;
+}
+
+.no-result .suggestions {
+  margin-top: 8px;
+}
+
+/* ── Bookings table ──────────────────────────────── */
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 24px 0 12px;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.bookings-table th {
+  text-align: left;
+  padding: 8px 12px;
+  background: var(--bg);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.bookings-table td {
+  padding: 9px 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 700px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    padding: 16px;
+  }
+}
